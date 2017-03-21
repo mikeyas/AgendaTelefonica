@@ -1,0 +1,103 @@
+﻿<!DOCTYPE HTML>
+<html ng-app="minhaApp">
+<head>
+    <title>Agenda Telefônica</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!--[if lte IE 8]><script src="~/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="~/assets/Content/Site.css" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/assets/css/main.css" />
+    <!--[if lte IE 9]><link rel="stylesheet" href="~/assets/css/ie9.css" /><![endif]-->
+    <!--[if lte IE 8]><link rel="stylesheet" href="~/assets/css/ie8.css" /><![endif]-->
+</head>
+<body>
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+        <!--Navbar header-->
+        <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a>@Html.ActionLink("Agenda Telefônica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Exibir Agenda", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Novo Contato", "Contact", "Home")</li>
+                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
+                    <li>
+                        
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+        @RenderSection("header",false)
+
+        <!-- Main -->
+        <div id="main" class="main">
+
+            <!-- Introduction -->
+            <section class="container">
+                @RenderBody()
+            </section>
+
+            <!-- Second Section -->
+            <section id="second" class="main special">
+                <ul class="statistics">
+                    <li class="style5" ng-controller="ContatosController">
+                        <span class="icon fa-signal"></span>
+                        <strong>{{contatos.length}}</strong> Total de <br />contatos cadastrados
+                    </li>
+                </ul>
+            </section>
+
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <section>
+                <h2>Contacte-nos</h2>
+                <dl class="alt">
+                    <dt>Address</dt>
+                    <dd>1234 Somewhere Road &bull; Nashville, TN 00000 &bull; USA</dd>
+                    <dt>Phone</dt>
+                    <dd>(000) 000-0000 x 0000</dd>
+                    <dt>Email</dt>
+                    <dd><a href="#">contato@agendatelefonica.com</a></dd>
+                </dl>
+                <ul class="icons">
+                    <li><a href="#" class="icon fa-twitter alt"><span class="label">Twitter</span></a></li>
+                    <li><a href="#" class="icon fa-facebook alt"><span class="label">Facebook</span></a></li>
+                    <li><a href="#" class="icon fa-instagram alt"><span class="label">Instagram</span></a></li>
+                    <li><a href="#" class="icon fa-github alt"><span class="label">GitHub</span></a></li>
+                    <li><a href="#" class="icon fa-dribbble alt"><span class="label">Dribbble</span></a></li>
+                </ul>
+            </section>
+            <p class="copyright">&copy; Untitled. Design: <a href="#">MIKEYAS ROCHA</a>.</p>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="~/assets/js/jquery.min.js"></script>
+    <script src="~/assets/js/jquery.scrollex.min.js"></script>
+    <script src="~/assets/js/jquery.scrolly.min.js"></script>
+    <script src="~/assets/js/skel.min.js"></script>
+    <script src="~/assets/js/util.js"></script>
+    <!--[if lte IE 8]><script src="~/assets/js/ie/respond.min.js"></script><![endif]-->
+    <script src="~/assets/js/main.js"></script>
+    <<!-- SCRIPTS/LIBRARIES -->
+    <script src="~/Assets/js/angular.min.js"></script>
+    <script src="~/Assets/js/app.js"></script>
+</body>
+</html>
