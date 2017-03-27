@@ -3779,7 +3779,7 @@
 /* Wrapper */
 
 	#wrapper {
-		width: 64em;
+		width: 95%;
 		max-width: calc(100%);
 		margin: 0 auto;
 	}

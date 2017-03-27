@@ -20,6 +20,7 @@ namespace AgendaTelefonica.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult Contact()
         {
             ViewBag.Message = "Adicione um novo contato à agenda.";
@@ -27,9 +28,18 @@ namespace AgendaTelefonica.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult EditContact()
         {
             ViewBag.Message = "Edite um contato da agenda.";
+
+            return View();
+        }
+
+
+        public ActionResult DetailsContact()
+        {
+            ViewBag.Message = "Exibe todos os dados do contato";
 
             return View();
         }

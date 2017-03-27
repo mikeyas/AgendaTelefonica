@@ -152,6 +152,7 @@
     <Compile Include="Contato.cs">
       <DependentUpon>ModelAgendaTelefonica.tt</DependentUpon>
     </Compile>
+    <Compile Include="Controllers\AutenticacaoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -305,6 +306,8 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\EditContact.cshtml" />
+    <Content Include="Views\Home\DetailsContact.cshtml" />
+    <Content Include="Views\Autenticacao\LogOn.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Models\" />

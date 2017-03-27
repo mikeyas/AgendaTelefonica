@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Exibição de Contato";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+<br />
+
+<div class="container input-group col-md-12" ng-controller="ContatosController">
+    <td>
+        <a href="">
+            <span class="glyphicon glyphicon-edit" ng-click="edit(contato.Id)"></span>
+            <span class="glyphicon glyphicon-remove-sign" ng-click="remove(contato)"></span>
+        </a>
+        <label>
+            <strong>Id: </strong>{{contato.Id}} <br />
+            <strong>Nome: </strong>{{contato.Nome}} <br />
+            <strong>Telefone: </strong>{{contato.Telefone}} <br />
+            <strong>Lembrança: </strong>{{contato.Lembranca}} <br />
+        </label>
+</div>
