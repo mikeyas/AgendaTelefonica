@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNet.Identity
+@if (Request.IsAuthenticated)
+{
+
+    @Html.AntiForgeryToken()
+
+    <ul class="nav navbar-nav navbar-right">
+        <li><a href="#">@Html.ActionLink("Olá " + User.Identity.Name + "!", "", "")</a>
+            <ul>
+                <li><a href="#">@Html.ActionLink("Alterar senha", "AlterarSenha", "Autenticacao")</a></li>
+                <li><a href="#">@Html.ActionLink("Gerenciar Usuários", "GerenciarUsuarios", "Autenticacao")</a></li>
+                <li><a href="#">@Html.ActionLink("Logoff", "LogOff", "Autenticacao")</a></li>
+            </ul>
+        </li>
+    </ul>
+    
+}
+else
+{
+    <ul class="nav navbar-nav navbar-right">
+        <li>@Html.ActionLink("Login", "LogOn", "Autenticacao", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+    </ul>
+}

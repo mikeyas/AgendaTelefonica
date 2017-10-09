@@ -14,7 +14,6 @@ namespace AgendaTelefonica.Controllers
         {
             try
             {
-
                 DBContatosEntities conexao = new DBContatosEntities();
 
                 Contato contato = new Contato() { Nome = nome, Telefone = telefone, Lembranca = lembranca };

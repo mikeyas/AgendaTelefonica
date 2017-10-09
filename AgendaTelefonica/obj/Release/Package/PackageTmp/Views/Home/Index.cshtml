@@ -10,13 +10,13 @@
     <h2>Bem-vindo à agenda telefônica!</h2>
     <h3>Busque o contato delejado navegando pela lista abaixo, ou digitando palavras-chave no campo de busca.</h3>
     <p>
-    <a href="/Home/Contact" class="btn btn-primary btn-lg">Adicione um novo contato aqui! &raquo;</a>
+    <a href="Contact" class="btn btn-primary btn-lg">Adicione um novo contato aqui! &raquo;</a>
     </p>
 </header>
 }
     <div class="row col-lg-12 input">
     <br>
-        <form action="" method="">
+        <form action="">
         <div class="\31 2u\28xlarge\29"> Pesquise aqui: <input type="search" class="\31 2u\28xlarge\29" id="textBoxSearch" ng-model="search" /> </div>
         </form>
     </div>
@@ -36,7 +36,14 @@
                 <td>{{contato.Nome}}</td>
                 <td>{{contato.Telefone}}</td>
                 <td>{{contato.Lembranca}}</td>
+                <td><a href="">
+                        <span class="glyphicon glyphicon-edit" ng-click="edit(contato.Id)"></span>
+                        <span class="glyphicon glyphicon-remove-sign" ng-click="remove(contato)"></span>
+                        <span class="glyphicon glyphicon-info-sign" ng-click="details(contato.Id)"></span>
+                    </a>
+                </td>
             </tr>
         </tbody>
     </table>
+    
 </div>

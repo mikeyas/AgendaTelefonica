@@ -26,5 +26,6 @@ namespace AgendaTelefonica
         }
     
         public virtual DbSet<Contato> Contatos { get; set; }
+        public virtual DbSet<Usuario> Usuarios { get; set; }
     }
 }

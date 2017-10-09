@@ -3,15 +3,27 @@
 }
 
 <h2>LogOn</h2>
+<div>
+
+ @{
+     if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+     {
+         <h1>Você já está logado.</h1>
+     }
+     else
+     {
+        <h1>Login</h1>
+         using (Html.BeginForm())
+         {
+            <a>Digite seu login:</a>
+            @Html.TextBox("login");
+            <a>Digite sua senha:</a>
+            @Html.Password("senha");
+            <input type="submit" value="Enviar" />
+        }
+     }
 
 
-<div class="login" ng-if="HttpContext.Current.User.Identity.IsAuthenticated">
-    
-    <h1>Login</h1>
-    <form method="post">
-        <input type="text" name="uuario" id="textBoxUsuario" placeholder="Usuário" required="required" />
-        <input type="password" name="senha" id="passwordBoxSenha" placeholder="Senha" required="required" />
-        <input type="button" class="btn-lg btn btn-success" value="Login" id="buttonLogin" />
-    </form>
+}
 </div>
 

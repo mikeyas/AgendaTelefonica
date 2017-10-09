@@ -9,7 +9,17 @@
     <Property Name="Telefone" Type="varchar" MaxLength="15" Nullable="false" />
     <Property Name="Lembranca" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
+  <EntityType Name="Usuarios">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nome" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="Senha" Type="varchar(max)" Nullable="false" />
+    <Property Name="Email" Type="varchar(max)" Nullable="false" />
+  </EntityType>
   <EntityContainer Name="DBContatosModelStoreContainer">
     <EntitySet Name="Contatos" EntityType="Self.Contatos" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuarios" EntityType="Self.Usuarios" Schema="dbo" store:Type="Tables" />
   </EntityContainer>
 </Schema>

@@ -153,31 +153,6 @@ if (url === "http://localhost:49678/Home/Contact") {
                 window.sessionStorage.removeItem('contato');
             };
             $scope.init();
-        });
+    });
 
-    buttonLogin.onclick = function () {
-        var usuario = textBoxUsuario.value.trim();
-        var senha = passwordBoxSenha.value.trim();
-        var returnUrl = url;
-
-        if (usuario === "" || senha === "") {
-            alert("Preencha o campo!");
-            return;
-        }
-        alert(usuario + " " + senha + " " + returnUrl);
-
-        //Enviar para o servidor (C#)
-        $.ajax({
-            url: "/Autenticacao/LogOn",
-            data: { usuario: usuario, senha: senha, returnUrl: returnUrl },
-            method: "POST"
-        }).done(function (resultado) {
-            if (resultado === true) {
-                alert("Login Efetuado!");
-            } else {
-                alert("Usuário ou senha inválido!");
-            }
-            });
-        textBoxUsuario.value = "";
-        passwordBoxSenha.value = "";
-    };
+$('.dropdown-toggle').dropdown();

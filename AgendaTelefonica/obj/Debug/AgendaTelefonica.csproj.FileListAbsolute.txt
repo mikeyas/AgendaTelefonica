@@ -154,3 +154,4 @@ C:\Users\Mikeyas\Documents\Projetos\AgendaTelefonica\AgendaTelefonica\bin\pt-br\
 C:\Users\Mikeyas\Documents\Projetos\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.csprojResolveAssemblyReference.cache
 C:\Users\Mikeyas\Documents\Projetos\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.dll
 C:\Users\Mikeyas\Documents\Projetos\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.pdb
+C:\Users\Mikeyas\Documents\Projetos\AgendaTelefonica\AgendaTelefonica\obj\Debug\AgendaTelefonica.csproj.CoreCompileInputs.cache

@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "Criar Usuário";
+}
+
+<h2>Criar usuário</h2>
+<div>
+
+    @{
+        if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated 
+            && System.Web.HttpContext.Current.User.Identity.Name=="administrador")
+        {
+            <h1>Criar um novo usuário:</h1>
+            using (Html.BeginForm())
+            {
+                <a>Digite o login:</a> @Html.TextBox("login");
+                <a>Digite a senha:</a> @Html.Password("senha");
+                <a>Repita o email:</a> @Html.TextBox("email");
+                <input type="submit" value="Enviar" />
+            }
+        }
+        else
+        {
+            @Html.ActionLink("Você não é ADMINISTRADOR!", "logoff", "Autenticacao")
+        }
+    }
+</div>
+

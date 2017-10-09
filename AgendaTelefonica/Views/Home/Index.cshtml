@@ -9,9 +9,6 @@
     <h1>Agenda Telefônica</h1>
     <h2>Bem-vindo à agenda telefônica!</h2>
     <h3>Busque o contato delejado navegando pela lista abaixo, ou digitando palavras-chave no campo de busca.</h3>
-    <p>
-    <a href="Contact" class="btn btn-primary btn-lg">Adicione um novo contato aqui! &raquo;</a>
-    </p>
 </header>
 }
     <div class="row col-lg-12 input">
@@ -37,8 +34,11 @@
                 <td>{{contato.Telefone}}</td>
                 <td>{{contato.Lembranca}}</td>
                 <td><a href="">
+                    @if (Request.IsAuthenticated)
+                    {
                         <span class="glyphicon glyphicon-edit" ng-click="edit(contato.Id)"></span>
                         <span class="glyphicon glyphicon-remove-sign" ng-click="remove(contato)"></span>
+                    }
                         <span class="glyphicon glyphicon-info-sign" ng-click="details(contato.Id)"></span>
                     </a>
                 </td>

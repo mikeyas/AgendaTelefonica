@@ -11,5 +11,15 @@
   </EntityType>
   <EntityContainer Name="DBContatosEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Contatos" EntityType="Self.Contato" />
+    <EntitySet Name="Usuarios" EntityType="DBContatosModel.Usuario" />
   </EntityContainer>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nome" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="Senha" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
 </Schema>

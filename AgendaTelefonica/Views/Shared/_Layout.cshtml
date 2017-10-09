@@ -1,10 +1,12 @@
 ﻿<!DOCTYPE HTML>
+@using Microsoft.AspNet.Identity
 <html ng-app="minhaApp">
 <head>
     <title>Agenda Telefônica</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="~/assets/js/ie/html5shiv.js"></script><![endif]-->
+    <link rel="stylesheet" href="~/assets/Content/dropdown.css" />
     <link rel="stylesheet" href="~/assets/Content/Site.css" />
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
@@ -25,17 +27,18 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a>@Html.ActionLink("Agenda Telefônica", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })</a>
+                <H2>Agenda Telefônica</H2>
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Exibir Agenda", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Listar Contatos", "Index", "Home")</li>
+                @if (Request.IsAuthenticated)
+                {   
                     <li>@Html.ActionLink("Novo Contato", "Contact", "Home")</li>
+                }
                     <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>
-                        
-                    </li>
                 </ul>
+                @Html.Partial("_LoginPartial")
             </div>
         </div>
     </div>
@@ -89,6 +92,7 @@
     </div>
 
     <!-- Scripts -->
+    <script src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/assets/js/jquery.min.js"></script>
     <script src="~/assets/js/jquery.scrollex.min.js"></script>
     <script src="~/assets/js/jquery.scrolly.min.js"></script>
@@ -99,5 +103,6 @@
     <<!-- SCRIPTS/LIBRARIES -->
     <script src="~/Assets/js/angular.min.js"></script>
     <script src="~/Assets/js/app.js"></script>
+
 </body>
 </html>

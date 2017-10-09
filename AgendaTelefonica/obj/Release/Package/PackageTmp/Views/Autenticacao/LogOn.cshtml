@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "LogOn";
+}
+
+<h2>LogOn</h2>
+<div>
+
+ @{
+     if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+     {
+         <h1>Você já está logado.</h1>
+     }
+     else
+     {
+        <h1>Login</h1>
+        using (Html.BeginForm())
+        {
+            @Html.TextBox("login");
+            @Html.TextBox("senha")
+            <input type="submit" value="Enviar" />
+        }
+     }
+
+
+}
+</div>
+
