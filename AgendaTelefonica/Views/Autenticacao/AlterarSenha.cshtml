@@ -1,14 +1,15 @@
-﻿@{
-    ViewBag.Title = "Alterar Senha";
+﻿@section header_pages{
+    <br />
+    <br />
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <br />
 }
-
-<h2>Alterar senha do usuário</h2>
 <div>
 
     @{
         if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
         {
-            <h1>Altere sua senha</h1>
             using (Html.BeginForm())
             {
                 <a>Digite a senha atual:</a> @Html.Password("senha atual");

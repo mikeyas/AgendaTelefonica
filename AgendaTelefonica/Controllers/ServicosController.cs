@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AgendaTelefonica.DAO;
+using AgendaTelefonica.Models;
 
 namespace AgendaTelefonica.Controllers
 {
@@ -14,11 +16,9 @@ namespace AgendaTelefonica.Controllers
         {
             try
             {
-                DBContatosEntities conexao = new DBContatosEntities();
-
+                ContatosDAO contatoDAO = new ContatosDAO();
                 Contato contato = new Contato() { Nome = nome, Telefone = telefone, Lembranca = lembranca };
-                conexao.Contatos.Add(contato);
-                conexao.SaveChanges();
+                contatoDAO.SalvarContato(contato);
                 return Json(true);
             }
             catch
@@ -32,13 +32,8 @@ namespace AgendaTelefonica.Controllers
         {
             try
             {
-                int _id = Convert.ToInt32(id);
-                DBContatosEntities conexao = new DBContatosEntities();
-                Contato contato = (from contatos in conexao.Contatos where contatos.Id == _id select contatos).First();
-                contato.Nome = nome;
-                contato.Lembranca = lembranca;
-                contato.Telefone = telefone;
-                conexao.SaveChanges();
+                ContatosDAO contatoDAO = new ContatosDAO();
+                contatoDAO.EditarContato(id, nome, telefone, lembranca);
                 return Json(true);
             }
             catch
@@ -53,11 +48,8 @@ namespace AgendaTelefonica.Controllers
         {
             try
             {
-                int _id = Convert.ToInt32(id);
-                DBContatosEntities conexao = new DBContatosEntities();
-                Contato contato = (from contatos in conexao.Contatos where contatos.Id == _id select contatos).First();
-                conexao.Contatos.Remove(contato);
-                conexao.SaveChanges();
+                ContatosDAO contatoDAO = new ContatosDAO();
+                contatoDAO.RemoverContato(id);
                 return Json(true);
             }
             catch
@@ -70,9 +62,8 @@ namespace AgendaTelefonica.Controllers
         [HttpGet]
         public ActionResult Contatos()
         {
-            DBContatosEntities conexao = new DBContatosEntities();
-
-            return Json(conexao.Contatos.ToList(), JsonRequestBehavior.AllowGet);
+            ContatosDAO contatoDAO = new ContatosDAO();
+            return Json(contatoDAO.ListarContatos(), JsonRequestBehavior.AllowGet);
         }
     }
 }

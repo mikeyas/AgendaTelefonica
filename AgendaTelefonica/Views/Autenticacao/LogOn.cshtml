@@ -1,8 +1,10 @@
-﻿@{
-    ViewBag.Title = "LogOn";
+﻿@section header_pages{
+    <br />
+    <br />
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <br />
 }
-
-<h2>LogOn</h2>
 <div>
 
  @{
@@ -12,7 +14,6 @@
      }
      else
      {
-        <h1>Login</h1>
          using (Html.BeginForm())
          {
             <a>Digite seu login:</a>

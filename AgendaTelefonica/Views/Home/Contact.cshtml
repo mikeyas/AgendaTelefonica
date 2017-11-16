@@ -1,14 +1,14 @@
-﻿@{
-    ViewBag.Title = "Novo Contato";
+﻿@section header_pages{
+    <br />
+    <br />
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <br />
 }
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-<br />
-
 <div class="container input-group col-md-12">
-        <input type="text" class="input-lg" id="textBoxNome" placeholder="Nome do Contato" /><br />
-        <input type="text" class="input-lg" id="textBoxTelefone" placeholder="Telefone do Contato" /><br />
-        <input type="text" class="input-lg" id="textBoxLembranca" placeholder="Lembrança do contato" /><br />
+    Nome do Contato:<input type="text" class="input-lg" id="textBoxNome" placeholder="Nome do Contato" /><br />
+    Telefone do Contato:<input type="text" class="input-lg" id="textBoxTelefone" placeholder="Telefone do Contato" /><br />
+    Lembrança do contato:<input type="text" class="input-lg" id="textBoxLembranca" placeholder="Lembrança do contato" /><br />
         <input type="button" class="btn-lg btn btn-success" value="Salvar Contato" id="buttonSalvarContato" />
 </div>
 

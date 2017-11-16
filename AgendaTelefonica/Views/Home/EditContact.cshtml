@@ -1,9 +1,10 @@
-﻿@{
-    ViewBag.Title = "Edição de Contato";
+﻿@section header_pages{
+    <br />
+    <br />
+    <h2>@ViewBag.Title</h2>
+    <h3>@ViewBag.Message</h3>
+    <br />
 }
-<h2>@ViewBag.Title</h2>
-<h3>@ViewBag.Message</h3>
-<br />
 
 <div class="container input-group col-md-12" ng-controller="ContatosController">
     <form action="/" method="post">

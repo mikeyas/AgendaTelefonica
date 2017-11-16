@@ -2,12 +2,12 @@
 @using Microsoft.AspNet.Identity
 <html ng-app="minhaApp">
 <head>
+    <link rel="shortcut icon"  href="~/assets/css/images/favicon.ico" />
     <title>Agenda Telefônica</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <!--[if lte IE 8]><script src="~/assets/js/ie/html5shiv.js"></script><![endif]-->
-    <link rel="stylesheet" href="~/assets/Content/dropdown.css" />
-    <link rel="stylesheet" href="~/assets/Content/Site.css" />
+    <link rel="stylesheet" href="~/assets/css/Site.css" />
     <link rel="stylesheet" href="~/assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/assets/css/bootstrap.css" />
     <link rel="stylesheet" href="~/assets/css/main.css" />
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-
+        <br />
 
         @RenderSection("header",false)
 
@@ -51,6 +51,7 @@
 
             <!-- Introduction -->
             <section class="container">
+                @RenderSection("header_pages", false)
                 @RenderBody()
             </section>
 
@@ -92,12 +93,12 @@
     </div>
 
     <!-- Scripts -->
-    <script src="~/Assets/js/bootstrap.min.js"></script>
     <script src="~/assets/js/jquery.min.js"></script>
     <script src="~/assets/js/jquery.scrollex.min.js"></script>
     <script src="~/assets/js/jquery.scrolly.min.js"></script>
     <script src="~/assets/js/skel.min.js"></script>
     <script src="~/assets/js/util.js"></script>
+    <script src="~/Assets/js/bootstrap.min.js"></script>
     <!--[if lte IE 8]><script src="~/assets/js/ie/respond.min.js"></script><![endif]-->
     <script src="~/assets/js/main.js"></script>
     <<!-- SCRIPTS/LIBRARIES -->

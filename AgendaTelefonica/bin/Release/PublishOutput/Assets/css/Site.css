@@ -1,0 +1,89 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+    background-color: white;
+    border-color: #000000;
+    border-width: medium;
+    border-style: solid;
+    color: #000000;
+}
+
+.input-group, .input-lg{
+    width:100%;
+}
+
+.form-control{
+    width: 100%;
+}
+
+.principal{
+	background-color: white;
+	color: black;
+}
+
+
+
+.input{
+	overflow: hidden;
+	padding: 0 3px 0 0;
+}
+
+.input input{
+	width: 100%;
+	max-width: 100%;
+	float:right;
+	align-items: center;
+	align-content: center;
+}
+
+.circulo {
+    align-content: center;
+    text-align: center;
+    vertical-align: middle;
+    align-items: center;
+    align-self: center;
+    width: 80px;
+    height: 80px;
+    background-color: white;
+    color: darkblue;
+    border-radius: 80px; /*(padrão)*/
+    -moz-border-radius: 80px; /*(navegadores Flock e Firefox)*/
+    -webkit-border-radius: 80px; /*(navegadores Chrome e Safari)*/
+    line-height: 80px;
+    font-size: 4em;
+
+        -moz-transition: opacity 1.25s ease, -moz-transform 0.5s ease;
+		-webkit-transition: opacity 1.25s ease, -webkit-transform 0.5s ease;
+		-ms-transition: opacity 1.25s ease, -ms-transform 0.5s ease;
+		transition: opacity 1.25s ease, transform 0.5s ease;
+		-moz-transition-delay: 0s;
+		-webkit-transition-delay: 0s;
+		-ms-transition-delay: 0s;
+		transition-delay: 0s;
+}
+
+.button{
+    color:cornflowerblue;
+    background-color: cornflowerblue;
+}

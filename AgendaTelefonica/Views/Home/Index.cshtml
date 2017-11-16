@@ -21,25 +21,26 @@
     <table class="table">
         <thead>
             <tr class="text-center "header"">
-                <td><strong>ID</strong></td>
-                <td><strong>Nome</strong></td>
-                <td><strong>Telefone</strong></td>
-                <td><strong>Lembrança</strong></td>
+                <td width=3%><strong>ID</strong></td>
+                <td width=30%><strong>Nome</strong></td>
+                <td width=30%><strong>Telefone</strong></td>
+                <td width=30%><strong>Lembrança</strong></td>
+                <td width=7%></td>
             </tr>
         </thead>
         <tbody>
-            <tr ng-repeat="contato in contatos | filter:search" class="text-center">
-                <td>{{contato.Id}}</td>
-                <td>{{contato.Nome}}</td>
-                <td>{{contato.Telefone}}</td>
-                <td>{{contato.Lembranca}}</td>
-                <td><a href="">
+            <tr ng-repeat="contato in contatos | filter:search  | orderBy:'Nome'" class="text-center">
+                <td width=3%>{{contato.Id}}</td>
+                <td width=30%>{{ contato.Nome }}</td>
+                <td width=30%><a href="tel:{{contato.Telefone}}">{{contato.Telefone}}</a></td>
+                <td width=30%>{{contato.Lembranca}}</td>
+                <td width=7%><a href="">
                     @if (Request.IsAuthenticated)
                     {
-                        <span class="glyphicon glyphicon-edit" ng-click="edit(contato.Id)"></span>
-                        <span class="glyphicon glyphicon-remove-sign" ng-click="remove(contato)"></span>
+                        <span class="glyphicon glyphicon-edit" ng-click="edit(contato.Id)" title="Editar contato"></span>
+                        <span class="glyphicon glyphicon-remove-sign" ng-click="remove(contato)" title="Remover contato"></span>
                     }
-                        <span class="glyphicon glyphicon-info-sign" ng-click="details(contato.Id)"></span>
+                        <span class="glyphicon glyphicon-info-sign" ng-click="details(contato.Id)" title="Detalhar contato"></span>
                     </a>
                 </td>
             </tr>

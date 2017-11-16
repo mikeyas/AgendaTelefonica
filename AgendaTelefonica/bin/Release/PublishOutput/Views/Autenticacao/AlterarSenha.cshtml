@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.Title = "Alterar Senha";
+}
+
+<h2>Alterar senha do usuário</h2>
+<div>
+
+    @{
+        if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+        {
+            <h1>Altere sua senha</h1>
+            using (Html.BeginForm())
+            {
+                <a>Digite a senha atual:</a> @Html.Password("senha atual");
+                <a>Digite a nova senha:</a> @Html.Password("nova senha");
+                <a>Repita a nova senha:</a> @Html.Password("repetir nova senha");
+                <input type="submit" value="Enviar" />
+            }
+        }
+        else
+        {
+            @Html.ActionLink("Clique aqui pra fazer o login", "logOn", "Autenticacao")
+        }
+
+
+    }
+</div>
+

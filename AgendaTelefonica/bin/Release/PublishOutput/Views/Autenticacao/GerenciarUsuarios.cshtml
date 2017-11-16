@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "Gerenciar Usuários";
+    ViewBag.Message = "Gerenciar usuários do sistema:";
+    }
+
+<br />
+<br />
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+<br />
+<div>
+
+    @{
+        if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated
+            && System.Web.HttpContext.Current.User.Identity.Name == "administrador")
+        {
+                <div class="row align-center" >
+                    Novo usuário:
+                    <button type="button" class="btn btn-primary" style="width:50%" onclick="window.location='cadastrarusuario'">
+                        Criar novo usuário
+                    </button>
+                </div>
+
+                <br />
+            <table class="table table-striped" width="auto">
+                <thead>
+                    <tr class="text-center " header"">
+                        <td><strong>ID</strong></td>
+                        <td><strong>Nome</strong></td>
+                        <td><strong>E-mail</strong></td>
+                        <td><strong>Ações</strong></td>
+                    </tr>
+                </thead>
+                <tbody>
+                    @{
+                        foreach (Usuario usuario in ViewBag.usuarios)
+                        {
+
+                            <tr class="text-center ">
+                                <td>@(usuario.Id)</td>
+                                <td>@(usuario.Nome)</td>
+                                <td>@(usuario.Email)</td>
+                                <td>
+                                    <a href="~/autenticacao/cadastrarusuario?id=@(usuario.Id)"><span class="glyphicon glyphicon-edit" title="Editar usuário"></span></a>
+                                    <a href="~/autenticacao/removerusuario?id=@(usuario.Id)"><span class="glyphicon glyphicon-remove-sign" title="Remover usuario"></span></a>
+                                    <a href="~/autenticacao/resetarsenha?id=@(usuario.Id)"><span class="glyphicon glyphicon-lock" title="Resetar senha"></span></a>
+                                </td>
+                            </tr>
+
+                        }
+                    }
+                </tbody>
+            </table>
+
+        }
+            else
+            {
+                <h2>@Html.ActionLink("Você não é ADMINISTRADOR!", "logoff", "Autenticacao")</h2>
+            }
+        }
+</div>

@@ -1,0 +1,12 @@
+﻿nav ul ul {
+    display: none;
+}
+
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav {
+    margin: 0 auto;
+    text-align: center;
+}

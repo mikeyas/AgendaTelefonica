@@ -15,7 +15,8 @@ namespace AgendaTelefonica.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Title = "Sobre o Sistema de Gerenciamento de Contatos Telefônicos";
+            ViewBag.Message = "Conheça o SGCT ou entre em contato conosco:";
 
             return View();
         }
@@ -23,7 +24,8 @@ namespace AgendaTelefonica.Controllers
         [Authorize]
         public ActionResult Contact()
         {
-            ViewBag.Message = "Adicione um novo contato à agenda.";
+            ViewBag.Title = "Cadastrar novo Contato.";
+            ViewBag.Message = "Adicione um novo contato à agenda:";
 
             return View();
         }
@@ -31,6 +33,7 @@ namespace AgendaTelefonica.Controllers
         [Authorize]
         public ActionResult EditContact()
         {
+            ViewBag.Title = "Edição de Contato";
             ViewBag.Message = "Edite um contato da agenda.";
 
             return View();
@@ -39,7 +42,8 @@ namespace AgendaTelefonica.Controllers
 
         public ActionResult DetailsContact()
         {
-            ViewBag.Message = "Exibe todos os dados do contato";
+            ViewBag.Title = "Exibição de Contato";
+            ViewBag.Message = "Visualize     todos os dados do contato";
 
             return View();
         }

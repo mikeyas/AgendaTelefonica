@@ -1,7 +1,6 @@
 ﻿var url = window.location.href.toString();
-if (url === "http://localhost:49678/Home/Contact") {
+if (url === "http://localhost:49678/Home/Contact" || url === "http://10.20.30.103:49678/Home/Contact") {
     buttonSalvarContato.onclick = function () {
-        alert("entrou");
         var nome = textBoxNome.value.trim();
         var telefone = textBoxTelefone.value.trim();
         var lembranca = textBoxLembranca.value.trim();
@@ -51,16 +50,13 @@ if (url === "http://localhost:49678/Home/Contact") {
                 while (i < $scope.contatos.length && a === false) {
                     if ($scope.contatos[i].Id === id) {
                         a = true;
-                        alert("entrou while/if");
                     } else {
                         i++;
-                        alert("entrou while/else " + i + " " + $scope.contatos[i].Id);
                     }
                 }
                 if (i < $scope.contatos.length) {
                     window.sessionStorage.setItem('contato', JSON.stringify($scope.contatos[i]));
                     window.location.href = 'Home/EditContact';
-                    alert("entrou if");
                 } else {
                     alert('Item não encontrado');
                 }
@@ -72,7 +68,6 @@ if (url === "http://localhost:49678/Home/Contact") {
                 var telefone = textBoxTelefone.value.trim();
                 var lembranca = textBoxLembranca.value.trim();
                 var id = $scope.contato.Id;
-                alert("entrou" + nome + id);
 
                 if (nome === "" || telefone === "" || lembranca === "") {
                     alert("Preencha o campo!");
@@ -105,7 +100,6 @@ if (url === "http://localhost:49678/Home/Contact") {
             $scope.remove = function (contato) {
 
                 var id = contato.Id;
-                alert("entrou " + id);
 
                 if (confirm("Deseja realmente excluir contato?")) {
                     
@@ -133,16 +127,13 @@ if (url === "http://localhost:49678/Home/Contact") {
                 while (i < $scope.contatos.length && a === false) {
                     if ($scope.contatos[i].Id === id) {
                         a = true;
-                        alert("entrou while/if");
                     } else {
                         i++;
-                        alert("entrou while/else " + i + " " + $scope.contatos[i].Id);
                     }
                 }
                 if (i < $scope.contatos.length) {
                     window.sessionStorage.setItem('contato', JSON.stringify($scope.contatos[i]));
                     window.location.href = '/Home/DetailsContact';
-                    alert("entrou if");
                 } else {
                     alert('Item não encontrado');
                 }
@@ -155,4 +146,4 @@ if (url === "http://localhost:49678/Home/Contact") {
             $scope.init();
     });
 
-$('.dropdown-toggle').dropdown();
+

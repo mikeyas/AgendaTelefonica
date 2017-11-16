@@ -160,6 +160,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServicosController.cs" />
     <Compile Include="DAO\AdministradorDAO.cs" />
+    <Compile Include="DAO\ContatosDAO.cs" />
     <Compile Include="DAO\UsuariosDAO.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -239,7 +240,7 @@
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Assets\Content\Site.css" />
+    <Content Include="Assets\css\Site.css" />
     <Content Include="images\logo.svg" />
     <Content Include="images\pic01.jpg" />
     <Content Include="images\pic02.jpg" />
@@ -284,31 +285,6 @@
     <Content Include="Assets\fonts\fontawesome-webfont.woff" />
     <Content Include="Assets\fonts\fontawesome-webfont.woff2" />
     <Content Include="Assets\fonts\FontAwesome.otf" />
-    <Content Include="Assets\sass\base\_page.scss" />
-    <Content Include="Assets\sass\base\_typography.scss" />
-    <Content Include="Assets\sass\components\_box.scss" />
-    <Content Include="Assets\sass\components\_button.scss" />
-    <Content Include="Assets\sass\components\_features.scss" />
-    <Content Include="Assets\sass\components\_form.scss" />
-    <Content Include="Assets\sass\components\_icon.scss" />
-    <Content Include="Assets\sass\components\_image.scss" />
-    <Content Include="Assets\sass\components\_list.scss" />
-    <Content Include="Assets\sass\components\_section.scss" />
-    <Content Include="Assets\sass\components\_spotlight.scss" />
-    <Content Include="Assets\sass\components\_statistics.scss" />
-    <Content Include="Assets\sass\components\_table.scss" />
-    <Content Include="Assets\sass\ie8.scss" />
-    <Content Include="Assets\sass\ie9.scss" />
-    <Content Include="Assets\sass\layout\_footer.scss" />
-    <Content Include="Assets\sass\layout\_header.scss" />
-    <Content Include="Assets\sass\layout\_main.scss" />
-    <Content Include="Assets\sass\layout\_nav.scss" />
-    <Content Include="Assets\sass\layout\_wrapper.scss" />
-    <Content Include="Assets\sass\libs\_functions.scss" />
-    <Content Include="Assets\sass\libs\_mixins.scss" />
-    <Content Include="Assets\sass\libs\_skel.scss" />
-    <Content Include="Assets\sass\libs\_vars.scss" />
-    <Content Include="Assets\sass\main.scss" />
     <Content Include="Assets\js\angular.min.js" />
     <Content Include="Assets\css\bootstrap-theme.css.map" />
     <Content Include="Assets\css\bootstrap-theme.min.css.map" />
@@ -326,6 +302,7 @@
       <DependentUpon>Model1.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -356,7 +333,7 @@
     <Content Include="Views\Autenticacao\LogOn.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Autenticacao\AlterarSenha.cshtml" />
-    <Content Include="Views\Autenticacao\CriarUsuario.cshtml" />
+    <Content Include="Views\Autenticacao\CadastrarUsuario.cshtml" />
     <Content Include="Views\Autenticacao\GerenciarUsuarios.cshtml" />
   </ItemGroup>
   <ItemGroup />

@@ -1,0 +1,15 @@
+﻿@{
+    ViewBag.Title = "Edição de Contato";
+}
+<h2>@ViewBag.Title</h2>
+<h3>@ViewBag.Message</h3>
+<br />
+
+<div class="container input-group col-md-12" ng-controller="ContatosController">
+    <form action="/" method="post">
+        <input type="text" class="input-lg" id="textBoxNome" ng-model="contato.Nome" /><br />
+        <input type="text" class="input-lg" id="textBoxTelefone" ng-model="contato.Telefone" /><br />
+        <input type="text" class="input-lg" id="textBoxLembranca" ng-model="contato.Lembranca"  /><br />
+        <input type="button" class="btn-lg btn btn-success" ng-click="sendedit(contato.Id)" value="Editar Contato" id="buttonSalvarContato" />
+    </form>
+</div>

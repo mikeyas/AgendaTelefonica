@@ -15,6 +15,8 @@ namespace AgendaTelefonica.Controllers
         [HttpGet]
         public ActionResult LogOn()
         {
+            ViewBag.Title = "Login do sistema";
+            ViewBag.Message = "Insira seu nome de usuário e senha:";
             return View();
         }
 
@@ -30,7 +32,15 @@ namespace AgendaTelefonica.Controllers
             if (usuarioDAO.VerificaLogin(login, senha))
                     {
                         FormsAuthentication.SetAuthCookie(login, false);
-                        return Redirect("~/Home/Index");
+                if (login == "administrador")
+                {
+                    return Redirect("~/autenticacao/gerenciarusuarios");
+                }
+                else
+                {
+                    return Redirect("~/home/index");
+                }
+                        
                     }
                 else
                     {
@@ -42,6 +52,8 @@ namespace AgendaTelefonica.Controllers
         [HttpGet]
         public ActionResult AlterarSenha()
         {
+            ViewBag.Title = "Alteração de senha do usuários";
+            ViewBag.Message = "Preencha o formulário para alterar sua senha de usuário:";
             return View();
         }
 
@@ -76,48 +88,137 @@ namespace AgendaTelefonica.Controllers
         }
 
         [HttpGet]
-        public ActionResult CriarUsuario()
+        public ActionResult CadastrarUsuario()
         {
+            ViewBag.Title = "Cadastro de Usuários";
+            ViewBag.Message = "Adicione ou edite usuários do sistema:";
+
+            DBContatosEntities conexao = new DBContatosEntities();
+            List<Usuario> usuarios = conexao.Usuarios.ToList();
+            ViewBag.usuarios = usuarios;
             return View();
         }
 
         [HttpPost]
-        public ActionResult CriarUsuario(FormCollection usuario)
+        public ActionResult CadastrarUsuario(FormCollection usuario)
         {
             if (User.Identity.Name == "administrador")
             {
-                algoritmoMD5 MD5 = new algoritmoMD5();
                 string login = usuario["login"];
-                string senha = MD5.GetMD5("#$%" + login + usuario["senha"]);
                 string email = usuario["email"];
-
                 AdministradorDAO admin = new AdministradorDAO();
-                try
-                {
-                    admin.CriarUsuario(login, senha, email);
-                    Response.Write("<script>alert('Usuário criado com sucesso!');</script>");
-                    return Redirect("~/Home/Index");
-                   
+                if (usuario["id"] != "")
+                {                                       
+                    try
+                    {
+                        int id = Convert.ToInt32(usuario["id"]);
+                        if(admin.AlterarUsuario(id, login, email))
+                        {
+                            return Content("<script>alert('Usuário alterado com sucesso!');window.location='gerenciarusuarios'</script>");
+                        }
+                        else
+                        {
+                            return Content("<script>alert('O usuário não pôde ser alterado!');window.location='gerenciarusuarios'</script>");
+                        }
+
+                    }
+                    catch
+                    {
+                        return Content("<script>alert('O usuário não pôde ser alterado!');window.location='gerenciarusuarios'</script>");
+                    } 
                 }
-                catch
+                else
                 {
-                    Response.Write("<script>alert('O usuário não pode ser criado.');</script>");
-                    return View();
+                    if(usuario["senha"]!= usuario["senha2"])
+                    {
+                        return Content("<script>alert('As senhas digitadas não coincidem!');window.location='cadastrarusuario'</script>");
+                    }
+
+                    algoritmoMD5 MD5 = new algoritmoMD5();
+                    string senha = MD5.GetMD5("#$%" + login + usuario["senha"]);
+                    
+                    try
+                    {
+                        if (admin.CriarUsuario(login, senha, email))
+                        {
+                            return Content("<script>alert('Usuário criado com sucesso!');window.location='gerenciarusuarios'</script>");
+                        }
+                        else
+                        {
+                            return Content("<script>alert('O usuário ou e-mail já estão cadastrados no sistema');window.location='gerenciarusuarios'</script>");
+                        }
+                    }
+                    catch
+                    {
+                        return Content("<script>alert('O usuário não pôde ser criado!');window.location='gerenciarusuarios'</script>");
+                    }
                 }
             }
             else
             {
-                Response.Write("<script>alert('Você não é ADMINISTRADOR!');</script>");
-                    return View();
+                return Content("<script>alert('Você não é ADMINISTRADOR!');window.location='gerenciarusuarios'</script>");
             }
         }
 
         [HttpGet]
         public ActionResult GerenciarUsuarios()
         {
+            ViewBag.Title = "Gerenciar Usuários";
+            ViewBag.Message = "Gerencie usuários do sistema:";
             DBContatosEntities conexao = new DBContatosEntities();
+            List<Usuario> usuarios = conexao.Usuarios.ToList();
+            ViewBag.usuarios = usuarios;
+            return View();
+        }
 
-            return Json(conexao.Usuarios.ToList(), JsonRequestBehavior.AllowGet);
+        public ActionResult RemoverUsuario()
+        {
+            AdministradorDAO admin = new AdministradorDAO();
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+
+            try
+            {
+                if (admin.RemoverUsuario(id))
+                {
+                    return Content("<script>alert('Usuário removido com sucesso!');window.location='gerenciarusuarios'</script>");
+                    //return Redirect("~/autenticacao/gerenciarusuarios");
+                }
+                else
+                {
+                    return Content("<script>alert('O usuário não pôde ser removido!');window.location='gerenciarusuarios'</script>");
+                }
+            }
+            catch
+            {
+                return Content("<script>alert('O usuário não pôde ser removido!');window.location='gerenciarusuarios'</script>");
+            }
+        }
+
+        public ActionResult ResetarSenha()
+        {
+            AdministradorDAO admin = new AdministradorDAO();
+            int id = Convert.ToInt32(Request.QueryString["id"]);
+            string user = Request.QueryString["user"];
+
+            try
+            {
+                string resetsenha = admin.RersetarSenha(id);
+                if(resetsenha.Equals("tente novamente")){
+                    return Content("<script>alert('A senha não pôde ser resetada!');window.location='gerenciarusuarios'</script>");
+                }
+                else
+                {
+                    string resultado = string.Format("<script>alert('Senha resetada com sucesso! Usuário: {0} Nova senha: {1}');window.location='gerenciarusuarios'</script>", user, resetsenha);
+                    return Content(resultado);
+                }
+                //return Content("<script>alert('Senha resetada com sucesso! A nova senha é:');window.location='gerenciarusuarios'</script>");
+                //return Redirect("~/autenticacao/gerenciarusuarios");
+
+            }
+            catch
+            {
+                return Content("<script>alert('A senha não pôde ser resetada!');window.location='gerenciarusuarios'</script>");
+            }
         }
 
         public ActionResult LogOff()

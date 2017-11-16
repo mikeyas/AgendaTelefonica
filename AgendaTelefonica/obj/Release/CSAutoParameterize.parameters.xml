@@ -1,6 +1,0 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<parameters>
-  <parameter name="DBContatosEntities-Web.config Connection String" description="DBContatosEntities A Cadeia de Conexão usada em web.config pelo aplicativo para acessar o banco de dados." defaultValue="metadata=res://*/ModelAgendaTelefonica.csdl|res://*/ModelAgendaTelefonica.ssdl|res://*/ModelAgendaTelefonica.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=(LocalDB)\MSSQLLocalDB;attachdbfilename=|DataDirectory|\DBContatos.mdf;integrated security=True;MultipleActiveResultSets=True;App=EntityFramework&quot;" tags="SqlConnectionString">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\Mikeyas\\Documents\\Projetos\\AgendaTelefonica\\AgendaTelefonica\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DBContatosEntities']/@connectionString" />
-  </parameter>
-</parameters>
