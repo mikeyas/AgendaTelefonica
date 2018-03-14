@@ -90,8 +90,17 @@ namespace AgendaTelefonica.Controllers
         [HttpGet]
         public ActionResult CadastrarUsuario()
         {
+            string id = Request.QueryString["id"];
+            if(id != null)
+            {
+                ViewBag.Message = "Edite  o usuário do sistema:";
+            }
+            else
+            {
+                ViewBag.Message = "Adicione usuários ao sistema:";
+            }
+
             ViewBag.Title = "Cadastro de Usuários";
-            ViewBag.Message = "Adicione ou edite usuários do sistema:";
 
             DBContatosEntities conexao = new DBContatosEntities();
             List<Usuario> usuarios = conexao.Usuarios.ToList();
